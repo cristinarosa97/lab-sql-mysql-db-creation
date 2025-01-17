@@ -21,13 +21,13 @@ CREATE TABLE invoices (
     invoice_number INT NOT NULL,
     car_id INT UNSIGNED NOT NULL,
     date DATETIME NOT NULL,
-    customer_id VARCHAR(25) NOT NULL,
+    customer_id INT NOT NULL,
     staff_id INT NOT NULL,
     FOREIGN KEY (car_id) REFERENCES cars(id)
 );
 
 CREATE TABLE customers (
-    customer_id VARCHAR(25) NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Remove UNSIGNED
+    customer_id INT unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Remove UNSIGNED
     name VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
     phone_number INT NOT NULL,
@@ -41,6 +41,6 @@ CREATE TABLE customers (
 CREATE TABLE salespersons (
     staff_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    store VARCHAR(50) NOT NULL,
+    store_id VARCHAR(50) NOT NULL,
     FOREIGN KEY (staff_id) REFERENCES invoices(staff_id)  -- Ensure types match in invoices
 );
