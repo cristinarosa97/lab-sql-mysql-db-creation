@@ -16,6 +16,23 @@ CREATE TABLE cars (
     color VARCHAR(20) NOT NULL
 );
 
+CREATE TABLE customers (
+    customer_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,  -- Changed to VARCHAR per typical phone number storage
+    address VARCHAR(50) NOT NULL,
+    city VARCHAR(30) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    postal_code INT NOT NULL
+);
+
+CREATE TABLE salespersons (
+    staff_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    store VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE invoices (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     invoice_number INT NOT NULL,
@@ -26,23 +43,4 @@ CREATE TABLE invoices (
     FOREIGN KEY (car_id) REFERENCES cars(id),
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
     FOREIGN KEY (staff_id) REFERENCES salespersons(staff_id)
-);
-
-CREATE TABLE customers (
-    customer_id INT unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,  -- Remove UNSIGNED
-    name VARCHAR(30) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    phone_number INT NOT NULL,
-    address VARCHAR(50) NOT NULL, 
-    city VARCHAR(30) NOT NULL, 
-    country VARCHAR(50) NOT NULL,
-    postal_code INT NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES invoices(customer_id)  -- Ensure types match in invoices
-);
-
-CREATE TABLE salespersons (
-    staff_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    store_id VARCHAR(50) NOT NULL,
-    FOREIGN KEY (staff_id) REFERENCES invoices(staff_id)  -- Ensure types match in invoices
 );
