@@ -21,9 +21,11 @@ CREATE TABLE invoices (
     invoice_number INT NOT NULL,
     car_id INT UNSIGNED NOT NULL,
     date DATETIME NOT NULL,
-    customer_id INT NOT NULL,
-    staff_id INT NOT NULL,
-    FOREIGN KEY (car_id) REFERENCES cars(id)
+    customer_id INT UNSIGNED NOT NULL,
+    staff_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (car_id) REFERENCES cars(id),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (staff_id) REFERENCES salespersons(staff_id)
 );
 
 CREATE TABLE customers (

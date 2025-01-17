@@ -12,11 +12,15 @@ VALUES (1, '3K096I98581DHSNUP', 'Volkswagen', 'Tiguan', 2019, 'Blue'),
     
 ALTER TABLE customers
 MODIFY COLUMN phone_number VARCHAR(20);
+
+INSERT INTO customers (customer_id, name, email, phone_number, address, city, country, postal_code)
+VALUES (10001, 'Pablo Picasso', 'ppicasso@gmail.com', '+34 636 17 63 82', 'Paseo de la Chopera, 14', 'Madrid', 'Spain', 28045);
     
 INSERT INTO customers (customer_id, name, email, phone_number, address, city, country, postal_code)
-VALUES (10001, "Pablo Picasso", "-", 34636176382, "Paseo de la Chopera, 14",	"Madrid",	"Spain",	28045),
-(20001,	"Abraham Lincoln","-",	13059077086, 	"120 SW 8th St",	"Miami", "United States",	33130),
-(30001, "Napoléon Bonaparte","-",	33179754000, "40 Rue du Colisée",	"Paris", "France",	75008);
+VALUES (20001,	"Abraham Lincoln","-",	13059077086, 	"120 SW 8th St",	"Miami", "United States",	33130);
+
+INSERT INTO customers (customer_id, name, email, phone_number, address, city, country, postal_code)
+VALUES (30001, "Napoléon Bonaparte","-",	33179754000, "40 Rue du Colisée",	"Paris", "France",	75008);
 
 INSERT INTO invoices (invoice_number, date, car_id, customer_id, staff_id)
 VALUES (852399038,	'2018-08-22',	1,	1,	3),
